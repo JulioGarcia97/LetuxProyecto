@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+	<div class="text-center">
+	  <div class="index_row clearfix">
+	    <h4 class="todo_list_title "><%= @notice.title %></h4>
+	    <br>
+	    <p class="todo_list_sub_title"><%= @notice.description %></p>
+	  </div>
+	  <div class="card-footer text-muted">
+	    <%= distance_of_time_in_words(@notice.created_at, Time.now) %>
+	  </div>
+	</div>
+</div>
+
+
+
+<div class="links">
+	<%= link_to 'Editar', edit_notice_path(@notice) if logged_in?(:site_admin) %> |
+	<%= link_to 'Eliminar', notice_path(@notice), method: :delete, data: {confirm: 'Estas seguro de eliminarlo?'} if logged_in?(:site_admin) %> |
+	<%= link_to 'Atras', notices_path %>
+</div>
+

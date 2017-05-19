@@ -1,0 +1,17 @@
+<%= form_for @notice do |f| %>
+	
+	<div class="field">
+		<%= f.label "Titulo" %>
+		<%= f.text_field :title %>
+	</div>
+
+	<div class="field">
+		<%= f.label "Descripción" %>
+		<%= f.text_area :description %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit "Crear Aviso" %>
+	</div>
+	
+<% end %>

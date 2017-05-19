@@ -1,0 +1,35 @@
+<div class="row clearfix">
+	<% if todo_task.completed? %>
+		<div class="complete">
+			<%= link_to complete_task_todo_task_path(@task, todo_task.id), method: :patch do %>
+				<i style='opacity: 0.4;' class='fa fa-check'></i>
+			<% end %>
+		</div>
+		<div class="todo_item">
+			<p style='opacity: 0.4;'><strike><%= todo_task.content %></strike></p>
+		</div>
+		<% if logged_in?(:site_admin) %>
+			<div class="trash">
+				<%= link_to task_todo_task_path(@task, todo_task.id), method: :delete, data: {confirm: 'Estas seguro de eliminarlo?'} do %>
+					<i class='fa fa-trash'></i>
+				<% end %>
+			</div>
+		<% end %>
+	<% else %>
+		<div class="complete">
+			<%= link_to complete_task_todo_task_path(@task, todo_task.id), method: :patch do %>
+				<i class='fa fa-check'></i>
+			<% end %>
+		</div>
+		<div class="todo_item">
+			<p><%= todo_task.content %></p>
+		</div>
+		<% if logged_in?(:site_admin) %>
+			<div class="trash">
+				<%= link_to task_todo_task_path(@task, todo_task.id), method: :delete, data: {confirm: 'Estas seguro de eliminarlo?'} do %>
+					<i class='fa fa-trash'></i>
+				<% end %>
+			</div>
+		<% end %>
+	<% end %>
+</div>

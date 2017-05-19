@@ -1,0 +1,4 @@
+<%= form_for [@task, @task.todo_task.build] do |f| %>
+	<%= f.text_field :content, placeholder: 'Nueva Tarea' if logged_in?(:site_admin) %>
+	<%= f.submit 'Guardar' if logged_in?(:site_admin) %>
+<% end %>

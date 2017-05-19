@@ -1,0 +1,10 @@
+<h1 class='todo_list_title'>Edit Todo List</h1>
+
+<div class="forms">
+	<%= render 'form', task: @task %>
+</div>
+
+<div class="links">
+	<%= link_to 'Show', @task %> |
+	<%= link_to 'Back', tasks_path %> 
+</div>
